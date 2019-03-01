@@ -31,14 +31,3 @@ public class EvenNumber {
 
 //use map, foreach
 
-
-//
-//
-//if (y.length()%2 == 0) {
-//	if(result.length() < y.length()) {
-//		result = y;
-//	}
-//}
-//if(result.equalsIgnoreCase("")) {
-//	result = "00";
-//}

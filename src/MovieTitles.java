@@ -5,23 +5,25 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class MovieTitles {
-	
-	public void getMovieTitles(String substr) throws IOException{
+public class MovieTitles 
+{	
+	public String getMovieTitles(String substr) throws IOException
+	{
+		String query="https://jsonmock.hackerrank.com/api/movies/search/?Title="+substr;
 		
-		URL link = new URL(substr);
-		HttpURLConnection con = (HttpURLConnection) link.openConnection();
+		URL url = new URL(query);
+		HttpURLConnection con = (HttpURLConnection) url.openConnection();
 		con.setRequestMethod("GET");
 		
-		int responseCode = con.getResponseCode();
 		BufferedReader in = new BufferedReader(
 		        new InputStreamReader(con.getInputStream()));
 		String inputLine;
 		StringBuffer response = new StringBuffer();
-		while ((inputLine = in.readLine()) != null) {
+		while ((inputLine = in.readLine()) != null) 
+		{
 			response.append(inputLine);
 		}
 		in.close();
-		System.out.println(response.toString());
+		return response.toString();
 	}
 }
